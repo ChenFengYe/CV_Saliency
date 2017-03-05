@@ -1,4 +1,3 @@
-function [foci, mask] = Foci(S)
 row = size(S,1);
 col = size(S,2);
 mask =im2bw(S,0.5);
@@ -13,7 +12,7 @@ for i = 1:row
             % 取得最大值
             d_min = inf;
             for i_a = 1: num
-                d_temp = (abs(i-rr(i_a)).^2 + abs(j-cc(i_a)).^2)/max(col,row).^2*3;
+                d_temp = (abs(i-rr(i_a)).^2 + abs(j-cc(i_a)).^2)/max(col,row).^2*50;
                 d_min = min(d_min, d_temp);
             end
             foci(i,j) = S(i,j)*max(0,1- d_min);
